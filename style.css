@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Fullscreen tugma */
+.fs-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  border: 1px solid #666;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.fs-btn:hover {
+  background: #444;
+}
+
+/* SOAT */
+.soat {
+  font-size: 100px;
+  font-weight: bold;
+  margin: 30px 0;
+  color: white;  /* NEON YO'Q - oddiy oq */
+}
+
+.soat span {
+  display: inline-block;
+  min-width: 140px;
+  text-align: center;
+}
+
+/* Timezone */
+.tz {
+  margin: 20px 0;
+}
+
+.tz select {
+  background: #222;
+  color: white;
+  border: 1px solid #444;  /* Oltin emas, oddiy */
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+/* TIMER */
+.timer {
+  background: #111;
+  padding: 30px;
+  border-radius: 30px;
+  text-align: center;
+  margin: 30px 0;
+  border: 1px solid #333;
+}
+
+.timer h3 {
+  color: white;  /* Oltin emas */
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.timer-display {
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+  margin: 20px 0;
+}
+
+.timer input {
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+  padding: 10px;
+  width: 80px;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: center;
+  margin: 5px;
+}
+
+.timer button {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
+.timer button:hover {
+  background: #444;
+}
+
+/* ALERT */
+.alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.alert.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.alert-text {
+  font-size: 80px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.alert p {
+  font-size: 30px;
+  color: #666;
+}
+
+/* ===== FULLSCREEN MODE ===== */
+body.fullscreen .timer,
+body.fullscreen .tz,
+body.fullscreen .timer-section {
+  display: none !important;  /* TIMER VA TIMEZONE YO'QOLADI */
+}
+
+body.fullscreen .soat {
+  font-size: 200px;  /* SOAT KATTALASHADI */
+  color: white;
+  text-shadow: none;  /* NEON YO'Q */
+}
+
+body.fullscreen .soat span {
+  min-width: 250px;
+}
+
+body.fullscreen .fs-btn {
+  background: #222;
+  border-color: #666;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .soat { font-size: 60px; }
+  .soat span { min-width: 80px; }
+  .timer-display { font-size: 40px; }
+  
+  body.fullscreen .soat {
+    font-size: 120px;
+  }
+  
+  body.fullscreen .soat span {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.fullscreen .soat {
+    font-size: 80px;
+  }
+  
+  body.fullscreen .soat span {
+    min-width: 100px;
+  }
+}
